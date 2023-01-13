@@ -64,7 +64,7 @@ class EventController extends Controller
             'updated_at' => now()
         ]);
 
-        return $this->success('Profile updated successfully!');
+        return $this->success('Event updated successfully!');
     }
 
     /**
