@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
@@ -13,6 +14,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return auth()->user();
     });
     Route::post('/logout', [AuthenticationController::class, 'logout']);
+    Route::put('/profile', [ProfileController::class, 'update']);
 });
 
 Route::post('/event', [EventController::class, 'store'])->middleware(['auth:sanctum']);
