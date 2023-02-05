@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\TodoController;
 
 Route::post('/register', [AuthenticationController::class, 'createAccount']);
@@ -29,3 +30,9 @@ Route::get('/todo', [TodoController::class, 'index'])->middleware(['auth:sanctum
 Route::get('/todo/{todo}', [TodoController::class, 'show'])->middleware(['auth:sanctum']);
 Route::delete('/todo/{todo}', [TodoController::class, 'destroy'])->middleware(['auth:sanctum']);
 Route::put('/todo/{todo}', [TodoController::class, 'update'])->middleware(['auth:sanctum']);
+
+Route::post('/timeline', [TimelineController::class, 'store'])->middleware(['auth:sanctum']);
+Route::get('/timeline', [TimelineController::class, 'index'])->middleware(['auth:sanctum']);
+Route::get('/timeline/{timeline}', [TimelineController::class, 'show'])->middleware(['auth:sanctum']);
+Route::delete('/timeline/{timeline}', [TimelineController::class, 'destroy'])->middleware(['auth:sanctum']);
+Route::put('/timeline/{timeline}', [TimelineController::class, 'update'])->middleware(['auth:sanctum']);
